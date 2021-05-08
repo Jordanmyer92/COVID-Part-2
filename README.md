@@ -58,18 +58,18 @@ California Coronavirus Map and Case Count - The New York Times (nytimes.com)
 Visualizations Screen Shots:
 
  
+Image 1: Trend showing metrics for California.
 ![image](https://user-images.githubusercontent.com/66345555/117547369-e1cb2500-aff4-11eb-83f4-8eee23e2f8ae.png)
 
-Image 1: Trend showing metrics for California.
- 
+ Image 2: Showing concentration of cases in California (heat map or markers)
  ![image](https://user-images.githubusercontent.com/66345555/117547377-e8f23300-aff4-11eb-8600-79cb74d336bc.png)
  
-Image 2: Showing concentration of cases in California (heat map or markers)
 
+Image 3: Showing heat map of total cases.
  ![image](https://user-images.githubusercontent.com/66345555/117547393-f9a2a900-aff4-11eb-99b0-1aeb13688f2e.png)
  
-Image 3: Showing heat map of total cases.
- 
+
+ Image 4: Showing confirmed cases hot spots in the US with time scale attribute.
  ![image](https://user-images.githubusercontent.com/66345555/117547399-045d3e00-aff5-11eb-952b-93a374005ac5.png)
  
-Image 4: Showing confirmed cases hot spots in the US with time scale attribute.
+
