@@ -1,9 +1,9 @@
 Group 7- Project 2 Proposal
 Name:
-Jordan Myer 
-Ryan Carnes
-John Glendening
-Mohammed Alshamsi
+Jordan Myer, 
+Ryan Carnes,
+John Glendening,
+Mohammed Alshamsi, &
 Christopher Turner 
 
 Link to our Github repository
