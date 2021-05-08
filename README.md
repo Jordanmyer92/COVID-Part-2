@@ -1,5 +1,6 @@
 Group 7- Project 2 Proposal
-Name:
+
+Members:
 Jordan Myer, 
 Ryan Carnes,
 John Glendening,
