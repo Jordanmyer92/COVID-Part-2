@@ -5,24 +5,28 @@ import os
 app = Flask(__name__)
 
 # your port is probably 5432 not 5433 like mine is here
-connection_string = "postgres:postgres@localhost:5432/Cali_db"
+connection_string = "postgres:postgres@localhost:5432/California"
 
 
 @app.route("/")
 def default():
-    return render_template('home.html')
+    return render_template('index.html')
 
 
 @app.route("/api")
 def api():
     engine = create_engine(f'postgresql://{connection_string}')
-    results = engine.execute("SELECT * FROM customer_name").fetchall()
+    results = engine.execute("SELECT * FROM age").fetchall()
     data = []
     index = 0
     for item in results:
-        data.append({'id': results[index][0],
-                     'firstname': results[index][1],
-                     'lastname': results[index][2],
+        data.append({'Age_Group': results[index][0],
+                     'Cases': results[index][1],
+                     'Date': results[index][2],
+                     'Perecent_Cases': results[index][3],
+                     'Deaths': results[index][4],
+                     'Percent_Deaths': results[index][5],
+                     'Ca_Population': results[index][6],
                      })
         index += 1
     return jsonify(data)
