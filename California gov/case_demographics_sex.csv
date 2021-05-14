@@ -1,4 +1,4 @@
-sex,totalpositive2,date,case_percent,deaths,deaths_percent,ca_percent
+Sex,Cases,Date,Perecent_Cases,Deaths,Percent_Deaths,Ca_Population
 Female,5015,4/2/2020,,,,
 Male,5547,4/2/2020,,,,
 Unknown,139,4/2/2020,,,,
