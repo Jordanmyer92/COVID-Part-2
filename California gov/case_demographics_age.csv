@@ -1,4 +1,4 @@
-age_group,totalpositive,date,case_percent,deaths,deaths_percent,ca_percent
+Age_Group,Cases,Date,Perecent_Cases,Deaths,Percent_Deaths,Ca_Population
 0-17,120,4/2/2020,,,,
 18-49,5302,4/2/2020,,,,
 50-64,2879,4/2/2020,,,,
