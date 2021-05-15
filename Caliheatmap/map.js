@@ -182,8 +182,32 @@ var myMap = L.map("map", {
           }
         });
         // Giving each feature a pop-up with information pertinent to it
-        layer.bindPopup("<h1>" + feature.properties.NAMELSAD + "</h1> <hr> <h2>" + feature.properties.CASES + "<br>" + "Total Cases" + "</h2>");
+        layer.bindPopup("<h1>" + feature.properties.NAMELSAD + "</h1> <hr> <h2>" + "<br>" + feature.properties.DOSESADMIN + "<br>" + "Vaccine Doses Administered" + "<hr></hr>" + "<br>" + feature.properties.CASES + "<br>" + "Total Cases" + "</h2>");
   
       }
     }).addTo(myMap);
+
+    var legend = L.control({
+        position: 'bottomleft'
+    });
+    legend.onAdd = function createLegend(legend) {
+        var className = 'leaflet-legend';
+        var items = [
+            {label: "<h3>" + "Risk Level Based On Number Of Cases And Vaccinations." + "<br>" + "Counties Must Meet Next Tier's Requirements For Two Consecutive Weeks." + "<hr></hr></h3>" },
+            {color: "black", label: "Maximum Risk (All non-essential businesses are closed)" },
+            { color: "red", label: "High Risk (Most non-essential businesses are closed)" },
+            { color: "orange", label: "Medium Risk (Some non-essential businesses are open with masks & distancing)" },
+            { color: "yellow", label: "Low Risk (All businesses are open with masks & distancing))" }
+        ];
+        var list = L.DomUtil.create('div', className + '-list');
+        items.forEach(function (item) {
+            var div = L.DomUtil.create('div', className + '-item', list);
+            var colorbox = L.DomUtil.create('div', className + '-color', div);
+            colorbox.innerHTML = '&nbsp;';
+            colorbox.style.backgroundColor = item.color;
+            L.DomUtil.create('div', className + '-text', div).innerHTML = item['label'];
+        });
+        return list;
+    }
+    legend.addTo(myMap);
   });
