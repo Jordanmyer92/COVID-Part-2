@@ -6,6 +6,5 @@ d3.json("/api").then(data => {
     data.forEach(element => {
         console.log(element)
     });
-
-
+    
 })
