@@ -17,7 +17,7 @@ function createFeatures(Testingsitedata) {
     // Define a function we want to run once for each feature in the features array
     // Give each feature a popup describing the place and time of the earthquake
     function onEachFeature(feature, layer) {
-        // console.log(feature)
+        //console.log(feature)
         layer.on({
             // When a user's mouse touches a map feature, the mouseover event calls this function, that feature's opacity changes to 90% so that it stands out
             mouseover: function (event) {
