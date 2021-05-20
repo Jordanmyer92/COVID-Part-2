@@ -29,7 +29,7 @@ d3.csv("vaccine.csv").then(function (data) {
 
     // Step 1: Parse Data/Cast as numbers
     // ==============================
-    console.log(data);
+    // console.log(data);
     data.forEach(element => {
         element.demographic_value = + element.demographic_value;
         element.fully_vaccinated = +element.fully_vaccinated
