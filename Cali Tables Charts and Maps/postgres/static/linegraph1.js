@@ -1,17 +1,12 @@
+d3.csv('/static/totalcases.csv').function(data => {
 
-
-
-d3.json("casesgraph1.json").then(data => {
-    console.log('something');
-
-
-    var date = data.date;
+    var date = data.map(data => data.date)
     console.log(date)
 
-    var cases = graphdata.map(data => data.confirmed_cases)
+    var cases = data.map(data => data.confirmed_cases)
     // console.log(cases)
 
-    var new_cases = graphdata.map(data => data.new_confirmed_cases)
+    var new_cases = data.map(data => data.new_confirmed_cases)
     // console.log(new_cases)
 
     var trace1 = {
@@ -90,18 +85,15 @@ function prepData(rawData) {
 }
 
 
-var graphdata1 = data1
+d3.csv('/static/vaccine.csv').fucntion(data =>{
 
-graphdata1.forEach(function (point1) {
-    // console.log(point1)
-
-    var date1 = point1.map(data => data.date)
+    var date1 = data.map(data => data.date)
     // console.log(date1)
 
-    var vaccinated = point1.map(data => data.new_doses_administered)
+    var vaccinated = data.map(data => data.new_doses_administered)
     // console.log(vaccinated)
 
-    var doses = point1.map(data => data.doses_administred)
+    var doses = data.map(data => data.doses_administred)
     // console.log(new_cases)
 
     var trace3 = {
