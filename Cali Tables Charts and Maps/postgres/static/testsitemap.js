@@ -82,7 +82,7 @@ function createMap(TestSites) {
             36.778259, -119.417931
         ],
         zoom: 6,
-        layers: [streetmap, TestSites]
+        layers: [darkmap, TestSites]
     });
 
     // Create a layer control

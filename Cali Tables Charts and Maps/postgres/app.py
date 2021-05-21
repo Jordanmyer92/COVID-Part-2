@@ -10,31 +10,82 @@ connection_string = "postgres:postgres@localhost:5432/California"
 
 @app.route("/")
 def default():
-    return render_template('index.html')
+    return render_template('home.html')
 
 
-@app.route("/test")
-def test():
-    return render_template('test.html', message='hi')
+@app.route("/home.html")
+def home():
+    return render_template('home.html')
 
 
-@app.route("/api")
-def api():
-    engine = create_engine(f'postgresql://{connection_string}')
-    results = engine.execute("SELECT * FROM age").fetchall()
-    data = []
-    index = 0
-    for item in results:
-        data.append({'Age_Group': results[index][0],
-                     'Cases': results[index][1],
-                     'Date': results[index][2],
-                     'Perecent_Cases': results[index][3],
-                     'Deaths': results[index][4],
-                     'Percent_Deaths': results[index][5],
-                     'Ca_Population': results[index][6],
-                     })
-        index += 1
-    return jsonify(data)
+@app.route("/countytable.html")
+def table1():
+    return render_template('countytable.html')
+
+
+@app.route("/countytable2.html")
+def table2():
+    return render_template('countytable2.html')
+
+
+@app.route("/medicalmap.html")
+def medical():
+    return render_template('medicalmap.html')
+
+
+@app.route("/vaccinetable.html")
+def vaccine():
+    return render_template('vaccinetable.html')
+
+
+@app.route("/Page1.html")
+def home1():
+    return render_template('Page1.html')
+
+
+@app.route("/Page2.html")
+def home2():
+    return render_template('Page2.html')
+
+
+@app.route("/Page3.html")
+def home3():
+    return render_template('Page3.html')
+
+
+@app.route("/Page4.html")
+def home4():
+    return render_template('Page4.html')
+
+
+@app.route("/Page5.html")
+def home5():
+    return render_template('Page5.html')
+
+
+@app.route("/Page6.html")
+def home6():
+    return render_template('Page6.html')
+
+
+@app.route("/Page7.html")
+def home7():
+    return render_template('Page7.html')
+
+
+@app.route("/Page8.html")
+def home8():
+    return render_template('Page8.html')
+
+
+@app.route("/ethnicitydata.html")
+def home9():
+    return render_template('ethnicitydata.html')
+
+
+@app.route("/testingsite.html")
+def testsite():
+    return render_template('testingsite.html')
 
 
 port = int(os.environ.get('PORT', 5000))
