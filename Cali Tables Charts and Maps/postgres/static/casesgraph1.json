@@ -1,4 +1,4 @@
-var data = [
+[
     {
         "date": "3/10/2020",
         "confirmed_cases": 0,

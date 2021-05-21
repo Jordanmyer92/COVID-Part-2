@@ -88,9 +88,9 @@ def testsite():
     return render_template('testingsite.html')
 
 
-@app.route("/linegraph.html")
-def linegraph():
-    return render_template('linegraph.html')
+@app.route("/linegraph1.html")
+def linegraph1():
+    return render_template('linegraph1.html')
 
 
 port = int(os.environ.get('PORT', 5000))

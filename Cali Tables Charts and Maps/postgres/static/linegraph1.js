@@ -1,21 +1,17 @@
 
-var graphdata = data
-
-graphdata.forEach(function (point) {
-    console.log(point)
 
 
-    // d3.json("/linegraph.html").then(data => {
-    //     console.log('something');
+d3.json("casesgraph1.json").then(data => {
+    console.log('something');
 
 
-    var date = data.map(data => data.date)
-    // console.log(date)
+    var date = data.date;
+    console.log(date)
 
-    var cases = data.map(data => data.confirmed_cases)
+    var cases = graphdata.map(data => data.confirmed_cases)
     // console.log(cases)
 
-    var new_cases = data.map(data => data.new_confirmed_cases)
+    var new_cases = graphdata.map(data => data.new_confirmed_cases)
     // console.log(new_cases)
 
     var trace1 = {
@@ -99,13 +95,13 @@ var graphdata1 = data1
 graphdata1.forEach(function (point1) {
     // console.log(point1)
 
-    var date1 = data1.map(data => data.date)
+    var date1 = point1.map(data => data.date)
     // console.log(date1)
 
-    var vaccinated = data1.map(data => data.new_doses_administered)
+    var vaccinated = point1.map(data => data.new_doses_administered)
     // console.log(vaccinated)
 
-    var doses = data1.map(data => data.doses_administred)
+    var doses = point1.map(data => data.doses_administred)
     // console.log(new_cases)
 
     var trace3 = {
