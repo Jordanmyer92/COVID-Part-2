@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 # your port is probably 5432 not 5433 like mine is here
-connection_string = "postgres:postgres@localhost:5432/California"
+connection_string = "postgres:postgres@localhost:5432/totalcases"
 
 
 @app.route("/")
@@ -86,6 +86,11 @@ def home9():
 @app.route("/testingsite.html")
 def testsite():
     return render_template('testingsite.html')
+
+
+@app.route("/linegraph.html")
+def linegraph():
+    return render_template('linegraph.html')
 
 
 port = int(os.environ.get('PORT', 5000))
