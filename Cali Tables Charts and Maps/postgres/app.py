@@ -88,9 +88,25 @@ def testsite():
     return render_template('testingsite.html')
 
 
-@app.route("/linegraph1.html")
-def linegraph1():
-    return render_template('linegraph1.html')
+# @app.route("/postgres")
+# def postgres():
+#     engine = create_engine(f'postgresql://{connection_string}')
+#     results = engine.execute("SELECT * FROM total_cases").fetchall()
+#     data = []
+#     index = 0
+#     for item in results:
+#         data.append({'date': results[index][0],
+#                      'confimed_cases': results[index][1],
+#                      'active_cases': results[index][2],
+#                      'new_confirmed_cases': results[index][3],
+#                      })
+#         index += 1
+#     return jsonify(data)
+
+
+# @app.route("/linegraph1.html")
+# def linegraph():
+#     return render_template('linegraph1.html')
 
 
 port = int(os.environ.get('PORT', 5000))

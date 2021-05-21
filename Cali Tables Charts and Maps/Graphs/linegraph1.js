@@ -1,7 +1,4 @@
-
-d3.json("casesgraph1.js").then(data=>{
-
-// d3.csv("totalcases.csv").then(data => {
+d3.csv("totalcases.csv").then(data => {
 
     var date = data.map(data => data.date)
     console.log(date)
@@ -65,7 +62,7 @@ d3.json("casesgraph1.js").then(data=>{
         }
     };
 
-    var metadata = [trace2];
+    var metadata= [trace2];
 
     Plotly.newPlot('plot', metadata, layout);
 });
@@ -88,7 +85,7 @@ function prepData(rawData) {
 }
 
 
-d3.csv("vaccine.csv").then(data1 => {
+d3.csv("vaccine.csv").then(data1 =>{
 
     var date1 = data1.map(data => data.date)
     // console.log(date1)
@@ -122,4 +119,3 @@ d3.csv("vaccine.csv").then(data1 => {
     Plotly.newPlot('plot1', data2, layout1);
 
 });
-
