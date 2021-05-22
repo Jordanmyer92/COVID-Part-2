@@ -1,6 +1,6 @@
 const pageWidth = window.innerWidth;
 const pageHeight = window.innerHeight;
-const defaultDropNum = 400;
+const defaultDropNum = 300;
 
 
 function makeItRain(num) {
