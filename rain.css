@@ -18,6 +18,12 @@ body {
     border-bottom: 25px solid maroon;
 }
 
+.lead {
+    text-align: center;
+    background-color: transparent;
+    color: rgb(189, 3, 3);
+}
+
 
 /* 
  */
