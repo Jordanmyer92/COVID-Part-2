@@ -1,7 +1,8 @@
 
-d3.json("casesgraph1.js").then(data => {
+d3.json("/static/js/graph1.js").then(data => {
 
-    console.log(data);
+    // console.log(data);
+
 
     var date = data.map(data => data.date)
     console.log(date)
@@ -85,10 +86,10 @@ function prepData(rawData) {
         x: x,
         y: y
     }];
-}
+};
 
 
-d3.json("vaccinegraph1.js").then(data1 => {
+d3.json("/static/js/graph2.js").then(data1 => {
 
     var date1 = data1.map(data => data.date)
     // console.log(date1)
