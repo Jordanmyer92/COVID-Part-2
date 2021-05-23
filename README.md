@@ -2,7 +2,6 @@ Group 7- Project 2 Proposal
 
 Members:
 Jordan Myer, 
-Ryan Carnes,
 John Glendening,
 Mohammed Alshamsi, &
 Christopher Turner 
