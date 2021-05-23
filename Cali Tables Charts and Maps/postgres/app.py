@@ -104,9 +104,9 @@ def testsite():
 #     return jsonify(data)
 
 
-# @app.route("/linegraph1.html")
-# def linegraph():
-#     return render_template('linegraph1.html')
+@app.route("/linegraph.html")
+def linegraph():
+    return render_template('linegraph.html')
 
 
 port = int(os.environ.get('PORT', 5000))
