@@ -1,0 +1,66 @@
+tr{
+    border: 1px solid black;
+    max-width:fit-content;
+    
+}
+
+th{
+    
+    max-width: fit-content;
+    text-align: center;
+
+}
+
+td{
+  
+    max-width: fit-content;
+    text-align: center;
+    
+}
+
+table{
+    background-color: whitesmoke;
+    
+}
+
+h1{
+    color: whitesmoke;
+    text-align: center;
+    font-style:oblique
+}
+
+html{
+    background-color: lightslategrey
+}
+
+body{
+    background-color: lightslategray;
+
+}
+
+p{
+    color:whitesmoke;
+    font-size: larger;
+    font-style: oblique;
+}
+
+h3{
+    text-align: center;
+    color: whitesmoke;
+}
+
+h5{
+    color: black;
+}
+h4{
+    color: whitesmoke;
+    text-align: left;
+    font-style:oblique
+
+}
+
+h2{
+    color: whitesmoke;
+    text-align: center;
+    font-style:oblique
+}

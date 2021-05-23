@@ -3,7 +3,6 @@ d3.json("/static/js/graph1.js").then(data => {
 
     // console.log(data);
 
-
     var date = data.map(data => data.date)
     console.log(date)
 
@@ -16,18 +15,20 @@ d3.json("/static/js/graph1.js").then(data => {
     var trace1 = {
         x: date,
         y: cases,
-        type: 'scatter'
+        type: 'scatter',
+        name: 'Cases'
     };
 
     var trace2 = {
         x: date,
         y: new_cases,
-        type: 'scatter'
+        type: 'scatter',
+        name: 'Cases'
     };
 
-    var metadata = [trace2];
+    // var metadata = [trace2];
 
-    Plotly.newPlot('plot', metadata);
+    // Plotly.newPlot('plot', metadata);
 
     var selectorOptions = {
         buttons: [{
@@ -103,13 +104,15 @@ d3.json("/static/js/graph2.js").then(data1 => {
     var trace3 = {
         x: date1,
         y: vaccinated,
-        type: 'scatter'
+        type: 'scatter',
+        name: 'Vaccinations'
     };
 
     var trace4 = {
         x: date1,
         y: doses,
-        type: 'scatter'
+        type: 'scatter',
+        name: 'Vaccinations'
     };
 
     var layout1 = {
@@ -118,7 +121,7 @@ d3.json("/static/js/graph2.js").then(data1 => {
         yaxis: { title: 'Number of Vaccinations' }
     };
 
-    var data2 = [trace3, trace4];
+    var data2 = [trace3];
 
     Plotly.newPlot('plot1', data2, layout1);
 
