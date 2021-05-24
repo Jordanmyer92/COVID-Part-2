@@ -25,26 +25,15 @@ function runEnter() {
     // filtered_data = data;
 
     // Select the input element and get the raw HTML node
-    // var inputDate = d3.select("#datetime").property('value');
+
     var inputcounty = d3.select("#county").property('value');
-    // var inputrace = d3.select("#race").property('value');
-//  var inputethn = d3.select("#Ethnicity").property('value');
-    // var inputShape = d3.select("#shape").property('value');
+
 
     // console.log(inputValue);
-    // if (inputDate)
-    //     filtered_data = filtered_data.filter(d => Date.parse(d.administered_date) == Date.parse(inputDate));
+
     if (inputcounty)
         filtered_data = filtered_data.filter(d => d.county.toLowerCase() == inputcounty.toLowerCase());
-    //  if (inputrace)
-    //      filtered_data = filtered_data.filter(d => d.race.toLowerCase() == inputrace.toLowerCase());
-    //  if (inputethn)
-    //     filtered_data = filtered_data.filter(d => d.demographic_value.toLowerCase() == inputethn.toLowerCase());
-    // if (inputShape)
-    //     filtered_data = filtered_data.filter(d => d.shape.toLowerCase() == inputShape.toLowerCase());
 
-    // console.log(filtered_data);
-    // console.log(tableData);
 
 
     var table = d3.select("table");
