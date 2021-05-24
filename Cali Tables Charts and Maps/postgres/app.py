@@ -98,6 +98,11 @@ def combined():
     return render_template('combined.html')
 
 
+@app.route("/Caliheatmap.html")
+def caliheatmap():
+    return render_template('Caliheatmap.html')
+
+
 port = int(os.environ.get('PORT', 5000))
 
 if __name__ == '__main__':
