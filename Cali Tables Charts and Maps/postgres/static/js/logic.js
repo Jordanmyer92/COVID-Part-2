@@ -17,7 +17,7 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(myMap);
 
 // Use this link to get the geojson data.
-var link = "ca_counties.geojson";
+var link = "\static\js\ca_counties.geojson";
 console.log(link)
 
 // Function that will determine the color of a county based on the county it belongs to
