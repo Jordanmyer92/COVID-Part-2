@@ -99,9 +99,6 @@ def combined():
 
 
 @app.route("/Caliheatmap.html")
-
-def calimap():
-
 def caliheatmap():
     return render_template('Caliheatmap.html')
 
