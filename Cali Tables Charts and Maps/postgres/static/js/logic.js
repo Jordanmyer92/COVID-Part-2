@@ -1,0 +1,225 @@
+//https://covid19.ca.gov/state-dashboard/
+
+// Creating map object
+var myMap = L.map("map", {
+    center: [38.57, -121.47],
+    zoom: 5.8
+});
+console.log(myMap)
+    // Adding tile layer
+L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
+    attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
+    tileSize: 512,
+    maxZoom: 18,
+    zoomOffset: -1,
+    id: "mapbox/streets-v11",
+    accessToken: API_KEY
+}).addTo(myMap);
+
+// Use this link to get the geojson data.
+var link = "\static\js\ca_counties.geojson";
+console.log(link)
+
+// Function that will determine the color of a county based on the county it belongs to
+function chooseColor(NAMELSAD) {
+    switch (NAMELSAD) {
+        case "Tulare County":
+            return "red";
+        case "Calaveras County":
+            return "orange";
+        case "Merced County":
+            return "red";
+        case "San Luis Obispo County":
+            return "orange";
+        case "Sonoma County":
+            return "orange";
+        case "Marin County":
+            return "orange";
+        case "Humboldt County":
+            return "orange";
+        case "Mono County":
+            return "yellow";
+        case "Del Norte County":
+            return "red";
+        case "Colusa County":
+            return "orange";
+        case "Alameda County":
+            return "orange";
+        case "El Dorado County":
+            return "orange";
+        case "Sutter County":
+            return "orange";
+        case "Kings County":
+            return "orange";
+        case "Sierra County":
+            return "yellow";
+        case "Lassen County":
+            return "yellow";
+        case "Lake County":
+            return "orange";
+        case "Tehama County":
+            return "red";
+        case "San Francisco County":
+            return "orange";
+        case "Alpine County":
+            return "yellow";
+        case "Madera County":
+            return "orange";
+        case "Sacramento County":
+            return "red";
+        case "Santa Barbara County":
+            return "orange";
+        case "Plumas County":
+            return "orange";
+        case "Modoc County":
+            return "orange";
+        case "Solano County":
+            return "red";
+        case "Ventura County":
+            return "orange";
+        case "Santa Cruz County":
+            return "orange";
+        case "Yuba County":
+            return "red";
+        case "Tuolumne County":
+            return "orange";
+        case "Napa County":
+            return "orange";
+        case "Siskiyou County":
+            return "orange";
+        case "Placer County":
+            return "red";
+        case "Glenn County":
+            return "orange";
+        case "Trinity County":
+            return "yellow";
+        case "Inyo County":
+            return "orange";
+        case "San Benito County":
+            return "orange";
+        case "Monterey County":
+            return "orange";
+        case "San Diego County":
+            return "orange";
+        case "Mariposa County":
+            return "orange";
+        case "Nevada County":
+            return "red";
+        case "Mendocino County":
+            return "yellow";
+        case "Yolo County":
+            return "orange";
+        case "Imperial County":
+            return "orange";
+        case "Stanislaus County":
+            return "red";
+        case "Kern County":
+            return "orange";
+        case "Contra Costa County":
+            return "orange";
+        case "Fresno County":
+            return "orange";
+        case "Santa Clara County":
+            return "orange";
+        case "San Mateo County":
+            return "yellow";
+        case "Butte County":
+            return "orange";
+        case "San Joaquin County":
+            return "red";
+        case "Amador County":
+            return "orange";
+        case "Shasta County":
+            return "red";
+        case "Riverside County":
+            return "orange";
+        case "Los Angeles County":
+            return "yellow";
+        case "Orange County":
+            return "orange";
+        case "San Bernardino County":
+            return "orange";
+        default:
+            return "black";
+    }
+}
+console.log(chooseColor)
+    // Grabbing our GeoJSON data..
+d3.json(link).then(function(data) {
+    // Creating a geoJSON layer with the retrieved data
+    L.geoJson(data, {
+        // Style each feature (in this case a county)
+        style: function(feature) {
+            return {
+                color: "white",
+                // Call the chooseColor function to decide which color to color our county (color based on county)
+                fillColor: chooseColor(feature.properties.NAMELSAD),
+                fillOpacity: 0.5,
+                weight: 1.5
+            };
+        },
+        // Called on each feature
+        onEachFeature: function(feature, layer) {
+            // Set mouse events to change map styling
+            layer.on({
+                // When a user's mouse touches a map feature, the mouseover event calls this function, that feature's opacity changes to 90% so that it stands out
+                mouseover: function(event) {
+                    layer = event.target;
+                    layer.setStyle({
+                        fillOpacity: 0.9
+                    });
+                },
+                // When the cursor no longer hovers over a map feature - when the mouseout event occurs - the feature's opacity reverts back to 50%
+                mouseout: function(event) {
+                    layer = event.target;
+                    layer.setStyle({
+                        fillOpacity: 0.5
+                    });
+                },
+                // When a feature (county) is clicked, it is enlarged to fit the screen
+                click: function(event) {
+                    myMap.fitBounds(event.target.getBounds());
+                }
+            });
+            // Giving each feature a pop-up with information pertinent to it
+            layer.bindPopup("<h1>" + feature.properties.NAMELSAD + "</h1> <hr> <h2>" + feature.properties.CASES + "<br>" + "Total Cases" + "</h2>");
+
+        }
+    }).addTo(myMap);
+});
+
+// Store API query variables
+var baseURL = "https://covid19.ca.gov/state-dashboard/";
+var date = "$where=created_date between'2020-01-01T00:00:00' and '2021-01-01T00:00:00'";
+var complaint = "";
+var limit = "&$limit=10000";
+
+// Assemble API query URL
+var url = baseURL + date + complaint + limit;
+
+// Grab the data with d3
+d3.json(url).then(function(response) {
+
+    // Create a new marker cluster group
+    var markers = L.markerClusterGroup();
+
+    // Loop through data
+    for (var i = 0; i < response.length; i++) {
+
+        // Set the data location property to a variable
+        var location = response[i].location;
+
+        // Check for location property
+        if (location) {
+
+            // Add a new marker to the cluster group and bind a pop-up
+            markers.addLayer(L.marker([location.coordinates[1], location.coordinates[0]])
+                .bindPopup(response[i].descriptor));
+        }
+
+    }
+
+    // Add our marker cluster layer to the map
+    myMap.addLayer(markers);
+
+});
