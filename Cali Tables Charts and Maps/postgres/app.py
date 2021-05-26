@@ -103,6 +103,26 @@ def caliheatmap():
     return render_template('Caliheatmap.html')
 
 
+@app.route("/total_vaccinations_per_hundredMap.html")
+def per100():
+    return render_template('total_vaccinations_per_hundredMap.html')
+
+
+@app.route("/casesMap.html")
+def casesmap():
+    return render_template('casesMap.html')
+
+
+@app.route("/total_vaccinationMap.html")
+def vaccinemap():
+    return render_template('total_vaccinationMap.html')
+
+
+@app.route("/deathsMap.html")
+def deathmap():
+    return render_template('deathsMap.html')
+
+
 port = int(os.environ.get('PORT', 5000))
 
 if __name__ == '__main__':
