@@ -7,18 +7,19 @@ var queryUrl2 = "https://alshamsi1996.github.io/gz_2010_us_050_00_500k.json";
         
         L.geoJSON(Coviddata, {
           style: function (feature) {
-            cases = feature.properties.cases;
-            if (cases < 100000) {return {color :"black", fillColor: "#008000", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 200000) {return {color :"black", fillColor: "#7CFC00", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 300000) {return {color :"black", fillColor: "#F0E68C", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 400000) {return {color :"black", fillColor: "#FFD700", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 500000) {return {color :"black", fillColor: "#FFFF00", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 6000000) {return {color :"black", fillColor: "#FF4500", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 7000000) {return {color :"black", fillColor: "#F4A460", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 800000) {return {color :"black", fillColor: "#FA8072", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 900000) {return {color :"black", fillColor: "#FF6347", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else {return {color: "black", fillColor: "#FF0000", fillOpacity: 0.5, dashArray: '1', weight: 2}}
+            total_vaccinations = feature.properties.total_vaccinations;
+            if (total_vaccinations < 500000) {return {color :"black", fillColor: "#FF0000", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else if (total_vaccinations < 1000000) {return {color :"black", fillColor: "#DC143C", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else if (total_vaccinations < 2000000) {return {color :"black", fillColor: "#F08080", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else if (total_vaccinations < 3000000) {return {color :"black", fillColor: "#FF8C00", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else if (total_vaccinations < 5000000) {return {color :"black", fillColor: "#FFA500", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else if (total_vaccinations < 10000000) {return {color :"black", fillColor: "#FFD700", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else if (total_vaccinations < 15000000) {return {color :"black", fillColor: "#FFFF00", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else if (total_vaccinations < 20000000) {return {color :"black", fillColor: "#9ACD32", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else if (total_vaccinations < 25000000) {return {color :"black", fillColor: "#ADFF2F", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else {return {color: "black", fillColor: "#008000", fillOpacity: 0.5, dashArray: '1', weight: 2}}
           }
+
         }).bindPopup(function (layer) {
           return layer.feature.properties.NAME;
         }).addTo(myMap);
@@ -75,8 +76,8 @@ var legend = L.control({
     /* Adding on the legend based off the color scheme we have */
 legend.onAdd = function (color) {
     var div = L.DomUtil.create('div', 'info legend');
-    var levels = ['Cases >100,000', '100,000-200,000', '200,000-300,000', '300,000-400,000', '400,000-500,000', '500,000-600,000', '600,000-700,000', '700,000-800,000', '800,000-900,000','900,000+ Cases' ];
-    var colors = ['#008000', '#7CFC00', '#F0E68C', '#FFD700', '#FFFF00', '#FF4500','#F4A460','#FA8072','#FF6347','#FF0000']
+    var levels = ['Vaccine doses >500,000', '500,000-1,000,000', '1,000,000-2,000,000', '2,000,000-3,000,000', '3,000,000-5,000,000', '5,000,000-10,000,000', '10,000,000-15,000,000', '15,000,000-20,000,000', '20,000,000-25,000,000','25,000,000+ Vaccine doses' ];
+    var colors = ['#FF0000', '#DC143C', '#F08080', '#FF8C00', '#FFA500', '#FFD700','#FFFF00','#9ACD32','#ADFF2F','#008000']
     for (var i = 0; i < levels.length; i++) {
                 div.innerHTML += '<i style="background:' + colors[i] + '"></i>' + levels[i] + '<br>';
             }

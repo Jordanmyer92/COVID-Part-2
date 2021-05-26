@@ -7,17 +7,15 @@ var queryUrl2 = "https://alshamsi1996.github.io/gz_2010_us_050_00_500k.json";
         
         L.geoJSON(Coviddata, {
           style: function (feature) {
-            cases = feature.properties.cases;
-            if (cases < 100000) {return {color :"black", fillColor: "#008000", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 200000) {return {color :"black", fillColor: "#7CFC00", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 300000) {return {color :"black", fillColor: "#F0E68C", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 400000) {return {color :"black", fillColor: "#FFD700", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 500000) {return {color :"black", fillColor: "#FFFF00", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 6000000) {return {color :"black", fillColor: "#FF4500", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 7000000) {return {color :"black", fillColor: "#F4A460", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 800000) {return {color :"black", fillColor: "#FA8072", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 900000) {return {color :"black", fillColor: "#FF6347", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else {return {color: "black", fillColor: "#FF0000", fillOpacity: 0.5, dashArray: '1', weight: 2}}
+            total_vaccinations_per_hundred = feature.properties.total_vaccinations_per_hundred;
+            if (total_vaccinations_per_hundred < 30) {return {color :"black", fillColor: "#FF0000", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else if (total_vaccinations_per_hundred < 40) {return {color :"black", fillColor: "#FF7F50", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else if (total_vaccinations_per_hundred < 50) {return {color :"black", fillColor: "#F0E68C", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else if (total_vaccinations_per_hundred < 60) {return {color :"black", fillColor: "#FFFF00", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else if (total_vaccinations_per_hundred < 70) {return {color :"black", fillColor: "#FFD700", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else if (total_vaccinations_per_hundred < 80) {return {color :"black", fillColor: "#98FB98", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else if (total_vaccinations_per_hundred < 90) {return {color :"black", fillColor: "#00FF00", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else {return {total_vaccinations_per_hundred: "black", fillColor: "#006400", fillOpacity: 0.5, dashArray: '1', weight: 2}}
           }
         }).bindPopup(function (layer) {
           return layer.feature.properties.NAME;
@@ -75,8 +73,8 @@ var legend = L.control({
     /* Adding on the legend based off the color scheme we have */
 legend.onAdd = function (color) {
     var div = L.DomUtil.create('div', 'info legend');
-    var levels = ['Cases >100,000', '100,000-200,000', '200,000-300,000', '300,000-400,000', '400,000-500,000', '500,000-600,000', '600,000-700,000', '700,000-800,000', '800,000-900,000','900,000+ Cases' ];
-    var colors = ['#008000', '#7CFC00', '#F0E68C', '#FFD700', '#FFFF00', '#FF4500','#F4A460','#FA8072','#FF6347','#FF0000']
+    var levels = ['% >30', '30-40', '40-50', '50-60', '60-70', '70-80', '80-90','90+ %' ];
+    var colors = ['#FF0000', '#FF7F50', '#F0E68C', '#FFFF00', '#98FB98', '#00FF00','#00FF00','#006400']
     for (var i = 0; i < levels.length; i++) {
                 div.innerHTML += '<i style="background:' + colors[i] + '"></i>' + levels[i] + '<br>';
             }

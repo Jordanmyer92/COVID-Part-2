@@ -7,16 +7,16 @@ var queryUrl2 = "https://alshamsi1996.github.io/gz_2010_us_050_00_500k.json";
         
         L.geoJSON(Coviddata, {
           style: function (feature) {
-            cases = feature.properties.cases;
-            if (cases < 100000) {return {color :"black", fillColor: "#008000", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 200000) {return {color :"black", fillColor: "#7CFC00", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 300000) {return {color :"black", fillColor: "#F0E68C", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 400000) {return {color :"black", fillColor: "#FFD700", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 500000) {return {color :"black", fillColor: "#FFFF00", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 6000000) {return {color :"black", fillColor: "#FF4500", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 7000000) {return {color :"black", fillColor: "#F4A460", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 800000) {return {color :"black", fillColor: "#FA8072", fillOpacity: 0.5, dashArray: '3', weight: 2}}
-            else if (cases < 900000) {return {color :"black", fillColor: "#FF6347", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            deaths = feature.properties.deaths;
+            if (deaths < 1000) {return {color :"black", fillColor: "#008000", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else if (deaths < 2000) {return {color :"black", fillColor: "#7CFC00", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else if (deaths < 3000) {return {color :"black", fillColor: "#F0E68C", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else if (deaths < 4000) {return {color :"black", fillColor: "#FFD700", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else if (deaths < 5000) {return {color :"black", fillColor: "#FFFF00", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else if (deaths < 10000) {return {color :"black", fillColor: "#FF4500", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else if (deaths < 200000) {return {color :"black", fillColor: "#F4A460", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else if (deaths < 30000) {return {color :"black", fillColor: "#FA8072", fillOpacity: 0.5, dashArray: '3', weight: 2}}
+            else if (deaths < 40000) {return {color :"black", fillColor: "#FF6347", fillOpacity: 0.5, dashArray: '3', weight: 2}}
             else {return {color: "black", fillColor: "#FF0000", fillOpacity: 0.5, dashArray: '1', weight: 2}}
           }
         }).bindPopup(function (layer) {
@@ -75,7 +75,7 @@ var legend = L.control({
     /* Adding on the legend based off the color scheme we have */
 legend.onAdd = function (color) {
     var div = L.DomUtil.create('div', 'info legend');
-    var levels = ['Cases >100,000', '100,000-200,000', '200,000-300,000', '300,000-400,000', '400,000-500,000', '500,000-600,000', '600,000-700,000', '700,000-800,000', '800,000-900,000','900,000+ Cases' ];
+    var levels = ['Deaths >1,000', '1,000-2,000', '2,000-3,000', '3,000-4,000', '4,000-5,000', '5,000-10,000', '10,000-20,000', '20,000-30,000', '30,000-40,000','40,000+ Deaths' ];
     var colors = ['#008000', '#7CFC00', '#F0E68C', '#FFD700', '#FFFF00', '#FF4500','#F4A460','#FA8072','#FF6347','#FF0000']
     for (var i = 0; i < levels.length; i++) {
                 div.innerHTML += '<i style="background:' + colors[i] + '"></i>' + levels[i] + '<br>';
