@@ -55,7 +55,7 @@ California Coronavirus Map and Case Count - The New York Times (nytimes.com)
 
 
 
-Visualizations Screen Shots:
+Visualizations from NY Times Screen Shots:
 
  
 Image 1: Trend showing metrics for California.
